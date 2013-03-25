@@ -3,6 +3,7 @@ package com.fm.mongotrip.domain;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,6 +13,8 @@ public class Trip {
 	@Id
 	private String id;
 	private String name;
+	@DBRef
+	private Itinerary itinerary;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date arrivalDate;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -47,6 +50,12 @@ public class Trip {
 	}
 	public void setTravelAgencyId(String travelAgencyId) {
 		this.travelAgencyId = travelAgencyId;
+	}
+	public Itinerary getItinerary() {
+		return itinerary;
+	}
+	public void setItinerary(Itinerary itinerary) {
+		this.itinerary = itinerary;
 	}
 	
 	

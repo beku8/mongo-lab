@@ -7,14 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Trip add</title>
+<title>Location add</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath }/">Home</a> | <a href="${pageContext.request.contextPath }/trip">Trip</a>
-<form:form modelAttribute="trip">
+<a href="${pageContext.request.contextPath }/">Home</a> | <a href="${pageContext.request.contextPath }/location">Location</a>
+<form:form modelAttribute="location">
 	Name: <form:input path="name"/><br/>
-	Arrival date: <form:input path="arrivalDate"/><br/>
-	Departure date: <form:input path="departureDate"/><br/>
 	<input type="submit"> 
 </form:form>
 

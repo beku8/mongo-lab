@@ -7,24 +7,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Trip list</title>
+<title>Location list</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath }/">Home</a> | <a href="${pageContext.request.contextPath }/trip/add">Add</a>
+<a href="${pageContext.request.contextPath }/">Home</a> | <a href="${pageContext.request.contextPath }/location/add">Add</a>
+
+
 <table style="border: 1px solid;">
 	<tr>
 		<th>ID</th>
 		<th>Name</th>
-		<th>Arrival date</th>
-		<th>Departure date</th>
 	</tr>
-	<c:forEach items="${trips}" var="trip">
+	<c:forEach items="${locations}" var="location">
 		<tr>
-			<td>${trip.id }</td>
-			<td>${trip.name }</td>
-			<td>${trip.arrivalDate }</td>
-			<td>${trip.departureDate }</td>
-		</tr>
+			<td>${location.id }</td>
+			<td>${location.name }</td>
 	</c:forEach>
 </table>
 
