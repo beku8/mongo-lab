@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fm.mongotrip.util.DateUtil;
+
 @Document
 public class Trip {
 	
@@ -20,6 +22,10 @@ public class Trip {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date departureDate;
 	private String travelAgencyId;
+	
+	public Integer getTotalDays(){
+		return DateUtil.getDaysBetween(arrivalDate, departureDate);
+	}
 	
 	public String getId() {
 		return id;

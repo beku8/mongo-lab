@@ -21,7 +21,7 @@
 	<c:forEach items="${trips}" var="trip">
 		<tr>
 			<td>${trip.id }</td>
-			<td>${trip.name }</td>
+			<td><a href="${pageContext.request.contextPath }/trip/detail/${trip.id}">${trip.name }</a></td>
 			<td>${trip.arrivalDate }</td>
 			<td>${trip.departureDate }</td>
 		</tr>
