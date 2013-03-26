@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.fm.mongo">
+	<logger name="com.fm.mongotrip">
 		<level value="info" />
 	</logger>
 	

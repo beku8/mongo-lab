@@ -14,6 +14,9 @@
 <ul>
 	<li><a href="${pageContext.request.contextPath }/trip">Trip</a></li>
 	<li><a href="${pageContext.request.contextPath }/location">Location</a></li>
+	
+	<li><a href="${pageContext.request.contextPath }/accoType">AccoType</a></li>
+	<li><a href="${pageContext.request.contextPath }/acco">Acco</a></li>
 </ul>
 </body>
 </html>
