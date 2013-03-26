@@ -20,9 +20,10 @@
 	<hr/>
 	<c:choose>
 		<c:when test="${not empty trip.itinerary}">
+			<h3>Itinerary</h3>
 			<c:forEach items="${trip.itinerary.days }" var="day">
 				<div>
-					<span>${day.day }. ${day.location.name }</span>
+					<span>${day.day }. ${day.location.name } @ ${day.accoType }</span>
 					
 					<c:if test="${not empty day.comment}">
 						(${day.comment })
@@ -34,6 +35,24 @@
 			<div> <a href="${pageContext.request.contextPath }/trip/addItinerary/${trip.id}">Add itinerary</a> </div>
 		</c:otherwise>
 	</c:choose>
+	<c:if test="${not empty accoReservations }">
+		<h3>Reservations</h3>
+		<c:forEach items="${accoReservations }" var="accoReservation" varStatus="row">
+		<div>
+			${row.count }. ${accoReservation.inDate } to ${accoReservation.outDate } 
+			${accoReservation.acco.name } @ ${accoReservation.location.name } 
+			<ul>
+				<c:forEach items="${accoReservation.eatings }" var="eating" varStatus="row2">
+				<li>${row2.count }
+					<c:forEach items="${accoReservation.acco.accoType.eatingTypes}" var="eatingType">
+						 ${eatingType } : ${eating[eatingType]} 
+					</c:forEach>
+				</li>
+				</c:forEach>
+			</ul>
+		</div>
+		</c:forEach>
+	</c:if>
 
 </body>
 </html>

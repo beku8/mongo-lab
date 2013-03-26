@@ -16,6 +16,8 @@ import com.fm.mongotrip.domain.ItineraryDay;
 import com.fm.mongotrip.domain.Location;
 import com.fm.mongotrip.domain.Trip;
 import com.fm.mongotrip.dto.ItineraryDto;
+import com.fm.mongotrip.repository.AccoReservationRepository;
+import com.fm.mongotrip.repository.AccoTypeRepository;
 import com.fm.mongotrip.repository.ItineraryRepository;
 import com.fm.mongotrip.repository.LocationRepository;
 import com.fm.mongotrip.repository.TripRepository;
@@ -27,6 +29,8 @@ public class TripController {
 	@Autowired private TripRepository tripRepository;
 	@Autowired private LocationRepository locationRepository;
 	@Autowired private ItineraryRepository itineraryRepository;
+	@Autowired private AccoTypeRepository accoTypeRepository;
+	@Autowired private AccoReservationRepository accoReservationRepository;
 	
 	@RequestMapping
 	public String getList(Model model){
@@ -50,6 +54,7 @@ public class TripController {
 	public String getDetail(@PathVariable("id") String id, Model model){
 		Trip trip = tripRepository.findOne(id);
 		model.addAttribute(trip);
+		model.addAttribute("accoReservations", accoReservationRepository.findByTrip(trip));
 		return "tripdetail";
 	}
 	
@@ -62,6 +67,7 @@ public class TripController {
 		}
 		model.addAttribute(itineraryDto);
 		model.addAttribute("locations", locationRepository.findAll());
+		model.addAttribute("accoTypes", accoTypeRepository.findAll());
 		return "tripadditinerary";
 	}
 	

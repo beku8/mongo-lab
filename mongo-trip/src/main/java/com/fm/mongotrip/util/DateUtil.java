@@ -1,9 +1,13 @@
 package com.fm.mongotrip.util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtil {
+	
+	private static SimpleDateFormat displayFormat = new SimpleDateFormat("yyyy-MM-dd");
 	
 	
     /**
@@ -48,6 +52,20 @@ public class DateUtil {
             } while (d1.get(java.util.Calendar.YEAR) != y2);
         }
         return days;
+    }
+    
+    /**
+     * @param dateString formatted yyyy-MM-dd
+     * @return
+     */
+    public static Date parseISO(String dateString){
+        try {
+            Date date = displayFormat.parse(dateString);
+            return date;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

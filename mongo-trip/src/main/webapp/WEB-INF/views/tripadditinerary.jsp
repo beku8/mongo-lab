@@ -22,6 +22,12 @@
 					<option value="${location.id }"> ${location.name } </option>
 				</c:forEach>
 			</form:select>
+			<form:select path="days[${row.index }].accoType">
+				<option>-select-</option>
+				<c:forEach items="${accoTypes }" var="accoType">
+					<option value="${accoType.type }"> ${accoType.type} </option>
+				</c:forEach>
+			</form:select>
 			<form:textarea path="days[${row.index }].comment"/>
 		</div>
 	</c:forEach>

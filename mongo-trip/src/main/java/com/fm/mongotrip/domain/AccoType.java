@@ -1,5 +1,9 @@
 package com.fm.mongotrip.domain;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,6 +17,27 @@ public class AccoType {
 	private Boolean lunch = false;
 	private Boolean dinner = false;
 	private Boolean pf = false;
+	
+	public Map<String, Boolean> getDefaultEatingMap(){
+		Map<String, Boolean> eatingMap = new HashMap<String, Boolean>();
+		if(this.getBf()){
+			eatingMap.put("bf", false);
+		}
+		if(this.getLunch()){
+			eatingMap.put("lunch", false);
+		}
+		if(this.getDinner()){
+			eatingMap.put("dinner", false);
+		}
+		if(this.getPf()){
+			eatingMap.put("pf", false);
+		}
+		return eatingMap;
+	}
+	
+	public Set<String> getEatingTypes(){
+		return this.getDefaultEatingMap().keySet();
+	}
 	
 	public String getType() {
 		return type;
